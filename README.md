@@ -2,7 +2,7 @@
 
 This application providing REST API to CRUD user and user session management.
 
-To improve db performance we used sharding, devided users table into part.
+To improve db performance we used sharding, devided users table into part. Also set indexs for tables.
 
 Here we are validating api call by authorization token. When user login generating authorization token this token need to pass in header for all subsquent secure api call.
 
@@ -113,3 +113,6 @@ Unauthorize request(401) if auth token not valid
 Ruby - 1.9.3
 Rails - 3.2.12
 Database - PostgreSQL
+
+## Scaling PostgreSQL Performance Using Table Partitioning
+Table partitioning is a good solution for large database and slow query . We can take users table and split it into many smaller tables - these smaller tables are called partitions or child tables. Operations such as backups, SELECTs, and DELETEs can be performed against individual partitions or against all of the partitions. Partitions can also be dropped or exported as a single transaction requiring minimal logging.
